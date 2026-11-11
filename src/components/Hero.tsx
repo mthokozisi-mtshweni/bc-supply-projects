@@ -8,7 +8,7 @@ export function Hero() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section id="home" className="hero-section">
+    <section id="desktop-home" className="hero-section">
       <div className="hero-image">
         <img
             src="/images/hero-image.png"

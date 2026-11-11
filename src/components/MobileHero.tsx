@@ -12,7 +12,7 @@ export function MobileHero() {
 
   return (
     <section
-      id="mobile-home"
+      id="home"
       className="bc-mobile-hero"
       aria-label="BC Supply & Projects"
     >
