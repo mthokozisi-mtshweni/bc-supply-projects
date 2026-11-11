@@ -349,3 +349,36 @@
     z-index: 2;
   }
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual .hero-slideshow {
+    top: auto;
+    bottom: 0;
+    height: 65%;
+  }
+
+  .bc-mobile-hero-visual .hero-slideshow .hero-slide {
+    object-fit: cover;
+    object-position: 65% bottom;
+  }
+}
+
+
+
+
+/* Mobile hero: shift visible image content to the right */
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual .hero-slideshow .hero-slide {
+    object-fit: cover;
+    object-position: 85% center !important;
+    transform: none !important;
+  }
+}
