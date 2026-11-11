@@ -382,3 +382,103 @@
     transform: none !important;
   }
 }
+
+
+
+
+/* Mobile hero: smoothly blend images into the top background */
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .bc-mobile-hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+      to bottom,
+      #061b32 0%,
+      rgba(6, 27, 50, 0.98) 8%,
+      rgba(6, 27, 50, 0.85) 18%,
+      rgba(6, 27, 50, 0.45) 32%,
+      rgba(6, 27, 50, 0.12) 45%,
+      transparent 58%
+    );
+  }
+}
+
+
+
+
+/* Mobile only: seamlessly fade the top edge of hero images */
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 5%,
+      rgba(0, 0, 0, 0.25) 12%,
+      rgba(0, 0, 0, 0.65) 22%,
+      #000 35%,
+      #000 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 5%,
+      rgba(0, 0, 0, 0.25) 12%,
+      rgba(0, 0, 0, 0.65) 22%,
+      #000 35%,
+      #000 100%
+    );
+  }
+}
+
+
+
+/* Mobile: subtle fade into navy at the top */
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 10%,
+      #000 25%,
+      #000 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 10%,
+      #000 25%,
+      #000 100%
+    );
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 25%,
+      #000 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 25%,
+      #000 100%
+    );
+  }
+}
