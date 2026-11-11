@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #fff;
+  background: #061426;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+  margin-top: 0;
+}
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-container {
+  width: min(100% - 64px, 1400px);
+  margin-inline: auto;
+}
+
+.primary-button,
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 23px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform .25s, background .25s, border-color .25s;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #12b8f5, #0062ed);
+  color: white;
+  border: 1px solid #299eff;
+  box-shadow: 0 6px 22px #0062ed35;
+}
+
+.outline-button {
+  background: #07162970;
+  color: white;
+  border: 1px solid #a9c5e2;
+}
+
+.primary-button:hover,
+.outline-button:hover {
+  transform: translateY(-3px);
+}
+
+.outline-button:hover {
+  border-color: #12b8f5;
+  background: #087ff522;
+}
+
+@media(max-width: 768px) {
+  .site-container {
+    width: min(100% - 36px, 1400px);
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+
+/* Separate desktop and mobile hero layouts */
+
+.bc-desktop-hero {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .bc-desktop-hero {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .bc-desktop-hero {
+    display: block;
+  }
+}

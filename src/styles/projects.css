@@ -1,0 +1,137 @@
+
+.projects-section {
+  padding: 90px 0;
+  background: #07192e;
+  color: #ffffff;
+}
+
+.projects-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 38px;
+}
+
+.projects-eyebrow {
+  display: block;
+  color: #47b9ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 16px;
+}
+
+.projects-heading h2 {
+  max-width: 660px;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(29px, 3.3vw, 43px);
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+.projects-heading h2 span {
+  color: #25b5ff;
+}
+
+.projects-heading > p {
+  max-width: 350px;
+  color: #a9bfd7;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  padding: 30px;
+  border: 1px solid #23517e;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #123c68, #0a2543);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #28a9ff;
+}
+
+.project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.project-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #168cf522;
+  color: #4cc2ff;
+}
+
+.project-card-top > span {
+  color: #5c88b3;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.project-card h3 {
+  font-family: "Sora", sans-serif;
+  font-size: 20px;
+  margin-bottom: 13px;
+}
+
+.project-card p {
+  min-height: 75px;
+  color: #b6cce1;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.project-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  color: #53c3ff;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .projects-heading {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-top {
+    margin-bottom: 24px;
+  }
+
+  .project-card p {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 60px 0;
+  }
+
+  .project-card {
+    padding: 25px;
+  }
+}
