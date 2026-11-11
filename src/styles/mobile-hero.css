@@ -36,7 +36,7 @@
     overflow: hidden;
   }
 
-  .bc-mobile-hero-visual img {
+  /* .bc-mobile-hero-visual img {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -44,7 +44,7 @@
     height: 88%;
     object-fit: cover;
     object-position: 55% bottom;
-  }
+  } */
 
   /* Gradient */
 
@@ -315,5 +315,37 @@
   .bc-mobile-primary,
   .bc-mobile-secondary {
     transition: none;
+  }
+}
+
+
+
+/* Mobile slideshow image composition */
+@media (max-width: 768px) {
+  .bc-mobile-hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+  }
+
+  .bc-mobile-hero-visual .hero-slideshow {
+    position: absolute;
+    inset: 0;
+  }
+
+  .bc-mobile-hero-visual .hero-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% center;
+  }
+
+  .bc-mobile-hero-shade {
+    z-index: -1;
+  }
+
+  .bc-mobile-hero-content {
+    z-index: 2;
   }
 }

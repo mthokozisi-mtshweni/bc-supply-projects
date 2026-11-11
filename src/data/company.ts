@@ -4,6 +4,7 @@ export const company = {
   tagline: "Building Your Tomorrow",
   logo: "/images/logo.png",
   phone: "066 036 1320",
+//   email: "mthosbudah03@gmail.com",
   email: "bcsupplyprojectssales1@gmail.com",
   address: "Brian Tsuka Street, 5672, eMalahleni",
 };

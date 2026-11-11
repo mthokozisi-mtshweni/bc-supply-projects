@@ -32,31 +32,13 @@
   background: linear-gradient(90deg, #06142633, transparent 50%);
 }
 
+
 .hero-section::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(110deg,
-    #061426 0%,
-    #061426 32%,
-    #062b50 43%,
-    #087ff5dd 44%,
-    #0755a6 46%,
-    transparent 46.5%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero-blue-accent {
-  position: absolute;
-  left: -12%;
-  bottom: -110px;
-  width: 65%;
-  height: 150px;
-  border-top: 2px solid #087ff5;
-  transform: rotate(-12deg);
-  background: linear-gradient(180deg, #087ff51f, transparent);
-  pointer-events: none;
+  display: none;
 }
 
 .hero-content {
@@ -258,3 +240,93 @@
 }
 
 
+
+/* Shared slideshow integration — desktop and tablet */
+@media (min-width: 769px) {
+  .hero-section .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-section .hero-image::after {
+    z-index: 1;
+  }
+
+  .hero-section::before {
+    z-index: 1;
+  }
+
+  .hero-section .hero-content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-section .hero-blue-accent {
+    z-index: 2;
+  }
+}
+
+/* Tablet-specific hero corrections */
+@media (min-width: 769px) and (max-width: 900px) {
+  .hero-section {
+    min-height: 600px;
+  }
+
+  .hero-section .hero-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  .hero-section .hero-copy {
+    max-width: 520px;
+  }
+
+  .hero-section .hero-copy h1 {
+    font-size: clamp(32px, 4.5vw, 42px);
+  }
+}
+
+
+
+/* Desktop hero: seamless navy-to-image blend */
+@media (min-width: 769px) {
+  .hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #061b32;
+  }
+
+  .hero-section .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-section .hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: linear-gradient(
+      90deg,
+      #061b32 0%,
+      #061b32 25%,
+      rgba(6, 27, 50, 0.96) 35%,
+      rgba(6, 27, 50, 0.78) 46%,
+      rgba(6, 27, 50, 0.38) 62%,
+      rgba(6, 27, 50, 0.08) 80%,
+      transparent 100%
+    );
+  }
+
+  .hero-section .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -3,18 +3,16 @@
 import { ArrowRight, FileText } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import "../styles/hero.css";
+import { HeroSlideshow } from "./HeroSlideshow";
 
 export function Hero() {
   const reducedMotion = useReducedMotion();
 
   return (
     <section id="desktop-home" className="hero-section">
-      <div className="hero-image">
-        <img
-            src="/images/hero-image.png"
-            alt="BC Supply & Projects construction and supply solutions"
-        />
-      </div>
+ <div className="hero-image">
+  <HeroSlideshow />
+</div>
 
       <div className="hero-blue-accent" />
 
@@ -26,7 +24,7 @@ export function Hero() {
           transition={{ duration: 0.7 }}
         >
           <p className="hero-eyebrow">
-            BC SUPPLY PROJECTS
+            BC SUPPLY & PROJECTS
           </p>
 
           <h1>

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import "../styles/mobile-hero.css";
+import { HeroSlideshow } from "./HeroSlideshow";
 
 export function MobileHero() {
   const reducedMotion = useReducedMotion();
@@ -17,13 +18,9 @@ export function MobileHero() {
       aria-label="BC Supply & Projects"
     >
       {/* Background image */}
-      <div className="bc-mobile-hero-visual">
-        <img
-          src="/images/hero-image.png"
-          alt="Construction supplies and equipment"
-          fetchPriority="high"
-        />
-      </div>
+     <div className="bc-mobile-hero-visual">
+  <HeroSlideshow />
+</div>
 
       {/* Navy gradient */}
       <div

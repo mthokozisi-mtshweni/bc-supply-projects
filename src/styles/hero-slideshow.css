@@ -1,0 +1,52 @@
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-slideshow .hero-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slideshow .hero-slide.is-active {
+  opacity: 1;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .hero-slideshow .hero-slide {
+    object-position: center;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .hero-slideshow .hero-slide {
+    object-position: 65% center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-slideshow .hero-slide {
+    object-position: 65% bottom;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slideshow .hero-slide {
+    transition: none;
+  }
+}

@@ -7,6 +7,29 @@ import "../styles/header.css";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+
+
+
+const [isScrolled, setIsScrolled] = useState(
+  () => window.scrollY > 0
+);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 0);
+  };
+
+  window.addEventListener("scroll", handleScroll, {
+    passive: true,
+  });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
+
+
   const [activeSection, setActiveSection] = useState("home");
   const pendingSection = useRef<string | null>(null);
 
@@ -119,7 +142,11 @@ export function Header() {
   }, []);
 
   return (
-    <header className="site-header">
+    <header
+ className={`site-header ${
+  isScrolled || open ? "header-scrolled" : ""
+}`}
+>
       <div className="header-inner site-container">
         <a
           href="#home"

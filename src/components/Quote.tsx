@@ -18,43 +18,72 @@ const serviceOptions = [
 export function Quote() {
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  
+const handleSubmit = async (
+  event: FormEvent<HTMLFormElement>
+) => {
+  event.preventDefault();
 
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "");
-    const email = String(data.get("email") || "");
-    const phone = String(data.get("phone") || "");
-    const service = String(data.get("service") || "");
-    const message = String(data.get("message") || "");
+  if (sending) return;
 
-    const subject = `Quotation Request - ${service}`;
+  const form = event.currentTarget;
+  const data = new FormData(form);
 
-    const body = [
-      "Good day BC Supply & Projects,",
-      "",
-      "I would like to request a quotation.",
-      "",
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      `Service: ${service}`,
-      "",
-      "Requirements:",
-      message,
-      "",
-      "Kind regards,",
-      name,
-    ].join("\n");
+  const service = String(data.get("service") || "");
+  const email = String(data.get("email") || "");
 
-    const mailto = `mailto:${company.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+  data.append(
+    "_subject",
+    `New Quotation Request - ${service}`
+  );
 
-    setSending(true);
-    window.location.href = mailto;
-    window.setTimeout(() => setSending(false), 1000);
-  };
+  data.append("_replyto", email);
+  data.append("_captcha", "true");
+  data.append("_template", "table");
+
+  setSending(true);
+
+  try {
+    const response = await fetch(
+      `https://formsubmit.co/ajax/${company.email}`,
+      {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to send enquiry");
+    }
+
+    const result = await response.json();
+
+    if (
+      result.success !== true &&
+      result.success !== "true"
+    ) {
+      throw new Error("Submission was not accepted");
+    }
+
+    form.reset();
+
+    alert(
+      "Your quotation request has been submitted successfully!"
+    );
+  } catch (error) {
+    console.error("Quotation submission error:", error);
+
+    alert(
+      "Unable to send your enquiry. Please try again."
+    );
+  } finally {
+    setSending(false);
+  }
+};
+
 
   return (
     <section id="quote" className="quote-section">
@@ -148,21 +177,23 @@ export function Quote() {
             />
           </label>
 
+      
           <button
             type="submit"
             className="quote-submit"
             disabled={sending}
           >
             <Send size={18} />
-            Prepare Email Enquiry
+            {sending ? "Sending Message..." : "Send Message"}
             <ArrowRight size={18} />
           </button>
 
           <p className="quote-note">
-            This opens your email application. Please send
-            the prepared message to complete your enquiry.
+            Your enquiry will be sent directly to our team.
+            We'll get back to you as soon as possible.
           </p>
         </form>
+
       </div>
     </section>
   );
