@@ -2,12 +2,16 @@
 import { useEffect, useState } from "react";
 import "../styles/hero-slideshow.css";
 
+
 const images = [
   "/images/services/hero-1.png",
   "/images/services/hero-2.png",
   "/images/services/hero-3.png",
   "/images/services/hero-4.png",
+  "/images/services/hero-5.png",
+  "/images/services/hero-6.png",
 ];
+
 
 export function HeroSlideshow() {
   const [activeIndex, setActiveIndex] = useState(0);
